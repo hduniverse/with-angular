@@ -9,13 +9,25 @@
 
  		$scope.add = function(list, title) {
  			var card = {
+ 				parent_list: list.id,
  				title: title
  			};
- 			list.cards.push(card);
+ 			$http.post('/scrumboard/cards/', card)
+ 				.then(function(response){
+ 					list.cards.push(response.data)
+ 				},
+ 				function() {
+ 					alert('Could not create card');
+ 				}
+ 			);
+ 		};
+ 		$scope.login = function() {
+ 			$http.post('/auth_api/login/',
+ 				{username: 'djangular', password: 'djangular1234'});
  		};
 
- 		$scope.date = [];
- 		$http.get('/scrumboard/lists').then(function(response){
+ 		$scope.data = [];
+ 		$http.get('/scrumboard/lists/').then(function(response){
  			$scope.data= response.data;
  		});
 

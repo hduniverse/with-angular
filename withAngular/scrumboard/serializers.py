@@ -7,13 +7,13 @@ class CardSerializer(serializers.ModelSerializer):
 
 	class Meta:
 		model = Card
-		fields = '__all__'
+		fields = ('id','title', 'description', 'parent_list')
 
 
 
 class ListSerializer(serializers.ModelSerializer):
-	cards = serializers.SlugRelatedField(many=True, read_only=True,slug_field='title')
+	cards = CardSerializer(many=True, read_only=True)
 	class Meta:
 		model = List
-		fields = ('name','cards')
+		fields = ('id','name','cards')
 
