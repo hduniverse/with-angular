@@ -15,18 +15,21 @@
 	<textarea   ng-model="card.description" 
 				ng-change="update()" 
 				placeholder="Enter! description."></textarea>
-	<div class="flex">
-		Value:
-		<input  type="number" 
-				ng-model="card.business_value" 
+	<div >
+		Val:
+		<input ng-model="card.business_value" 
 				ng-change="update()" maxlength="2" size="2"/>
-		Points: 
-		<input  type="number" 
-				ng-model="card.story_points" 
+		Pts: 
+		<input ng-model="card.story_points" 
 				ng-change="update()" maxlength="2" size="2"/>
 	</div>
 	
-	
+	<div>
+		<label>List: </label>
+		<select ng-options="list as list.name for list in data"
+				ng-model="destList"></select>
+		<button ng-click="move()">Move</button>
+	</div>
 
 	<button ng-click="edit=false">Close</button>
 	<button ng-click="delete()">Delete Card</button>

@@ -3,8 +3,41 @@
 </div>
 <div class="list" ng-repeat="list in data">
 	<h3>{{ list.name }} </h3>
+
+	<span class="show-filters">
+		<button ng-click="showFilters=!showFilters">
+			{{ showFilters ? "Hide" : "Show" }} filters
+		</button>
+
+	</span>
+
+	<div class="list-sort" ng-show="showFilters">
+		<hr>
+		<table>
+			<tr>
+				<td><label>Sort: </label></td>
+				<td>
+					<select ng-model="sortBy">
+						<option value="title">Titles</option>
+						<option value="story_points">Story Points</option>
+						<option value="business_value">Business Value</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td><label>Reverse</label></td>
+				<td><input type="checkbox" ng-model="reverse"> </td>
+			</tr>
+			<tr>
+				<td><label>Search: </label></td>
+				<td class="flex"><input type="text" ng-model="filterBy"/></td>	
+			</tr>	
+		</table>
+	</div>
+
+	
 	<ul>
-		<li ng-repeat="card in list.cards"><scrum-card></scrum-card></li>
+		<li ng-repeat="card in list.cards | filter:filterBy | orderBy:sortBy:reverse"><scrum-card></scrum-card></li>
 	</ul>
 	<div class="flex">
 		<input ng-model="new_title"/>

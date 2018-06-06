@@ -16,14 +16,10 @@
 				ng-change="update()" 
 				placeholder="Enter! description."></textarea>
 	<div class="flex">
-		Value:
+		<label><strong>Business Value:&nbsp;</strong></label>
 		<input  type="number" 
 				ng-model="card.business_value" 
-				ng-change="update()" maxlength="2" size="2"/>
-		Points: 
-		<input  type="number" 
-				ng-model="card.story_points" 
-				ng-change="update()" maxlength="2" size="2"/>
+				ng-change="update()"/>
 	</div>
 	
 	
