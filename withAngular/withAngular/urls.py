@@ -23,6 +23,6 @@ urlpatterns = [
     path('scrumboard/', include('scrumboard.urls')),
     path('auth_api/', include('auth_api.urls')),
     path('admin/', admin.site.urls),
-    url(r'^$', ensure_csrf_cookie(TemplateView.as_view(template_name = "scrumboard/home.html"))),
+    url(r'^$', ensure_csrf_cookie(TemplateView.as_view(template_name = "home.html"))),
 
 ]

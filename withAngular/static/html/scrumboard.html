@@ -1,0 +1,13 @@
+<div>
+	<button class="logout" ng-click="logout()">Logout</button>
+</div>
+<div class="list" ng-repeat="list in data">
+	<h3>{{ list.name }} </h3>
+	<ul>
+		<li ng-repeat="card in list.cards"><scrum-card></scrum-card></li>
+	</ul>
+	<div class="flex">
+		<input ng-model="new_title"/>
+		<button ng-click ="add(list, new_title)">Add</button> 
+	</div> 
+</div>
