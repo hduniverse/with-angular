@@ -7,7 +7,7 @@
 
 	function ScrumCard() {
 		return {
-			templateUrl: '/static/html/card4.html',
+			templateUrl: '/static/html/card.html',
 			restrict: 'E',
 			controller: ['$scope', '$http', function ($scope, $http) {
 				var url = '/scrumboard/cards/' + $scope.card.id + '/';
